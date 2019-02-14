@@ -3,23 +3,36 @@ import { Text, View , Image } from 'react-native';
 import { CardSection, Button, Button2 } from './common';
 import {  Audio, Asset, AppLoading } from 'expo';
 
-
-
-
-
-
 class OneShot extends Component {
 
 	state = {
-			isReady: false
+			isReady: false,
 		};
 
 	async componentWillMount(){
+		this.loadSamples();
 	  
 	  try{
 	    await Expo.Audio.setIsEnabledAsync(true);
 	  } catch(error) {console.log(error);}
 	}
+
+	async _cacheResourcesAsync() {
+	    const samples = [
+	      require('../sounds/oneshot/o1.wav'),
+	      require('../sounds/oneshot/o2.wav'),
+	      require('../sounds/oneshot/o3.wav'),
+	      require('../sounds/oneshot/o4.wav'),
+	      require('../sounds/oneshot/o5.wav'),
+	      require('../sounds/oneshot/o6.wav'),
+	    ];
+
+	    const cacheSamples = samples.map((samples) => {
+	      return Asset.fromModule(samples).downloadAsync();
+	    });
+	    return Promise.all(cacheSamples)
+
+	  }
 	
 
 	handlePLay1 = async () => {
@@ -27,8 +40,9 @@ class OneShot extends Component {
 		this.setState({ playing1: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/oneshot/o1.wav'));
+	    		await soundObject.loadAsync(require('../sounds/oneshot/o1.wav'))
 	    	{ shouldPlay: true }
+
 	    	this.audioPlayer1  = soundObject;
 	    		await this.audioPlayer1.playAsync();
 	    		await this.audioPlayer1.setPositionAsync(0);
@@ -134,24 +148,6 @@ class OneShot extends Component {
 	    	
 	  		} 
 	}
-
-
-	 async _cacheResourcesAsync() {
-	     const samples = [
-	       require('../sounds/oneshot/o1.wav'),
-	       require('../sounds/oneshot/o2.wav'),
-	       require('../sounds/oneshot/o3.wav'),
-	       require('../sounds/oneshot/o4.wav'),
-	       require('../sounds/oneshot/o5.wav'),
-	       require('../sounds/oneshot/o6.wav'),
-	     ];
-
-	     const cacheSamples = samples.map((samples) => {
-	       return Asset.fromModule(samples).downloadAsync();
-	     });
-	     return Promise.all(cacheSamples)
-
-	   }
 
 
 	render(){

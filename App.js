@@ -1,10 +1,7 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import ReduxThunk from 'redux-thunk';
-import reducers from './src/reducers';
-import Router from './src/Router';
+import Sample from './src/components/Sample';
 import { Audio, Asset, AppLoading } from 'expo';
+
 
 
 
@@ -18,7 +15,7 @@ export default class App extends React.Component {
     this._cacheResourcesAsync();
     Expo.Audio.setAudioModeAsync({
             playsInSilentModeIOS: true,
-            allowsRecordingIOS: false,
+            allowsRecordingIOS: true,
             interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
             shouldDuckAndroid: false,
             interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
@@ -26,8 +23,6 @@ export default class App extends React.Component {
   }
 
     render() {	
-    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
-
     if (!this.state.isReady) {
           return (
             <AppLoading
@@ -38,9 +33,7 @@ export default class App extends React.Component {
           );
         }
     return (
-      <Provider store = {store}>
-        <Router/>
-      </Provider>
+      <Sample/>
     );
   }
   async _cacheResourcesAsync() {

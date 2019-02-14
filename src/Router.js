@@ -1,20 +1,18 @@
 import React from 'react';
-import { Scene, Router, Actions} from 'react-native-router-flux';
-import Communications from 'react-native-communications';
 import House from './components/House';
 import Info from './components/Info';
 
 
 const RouterComponent = () => {
 	return (
-		<Router sceneStyle={{ paddingTop: 65 }}>
+		<Router sceneStyle={{ paddingTop: 75}}>
 			
 			<Scene 
 				key="home" 
 				component={House} 
 				initial={true} 
 				title="Noise Machine" 
-				titleStyle={{color: 'black', fontSize: 25, fontWeight: 'bold'}}
+				titleStyle={{color: 'black', fontSize: 25, fontWeight: 'bold' }}
 				navigationBarStyle={{backgroundColor:'white'}}
 				navBarButtonColor="white"
 				onRight={() => Communications.web('https://shinedarkmusic.com/Samples')}

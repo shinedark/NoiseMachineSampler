@@ -320,7 +320,7 @@ class Noise2 extends Component {
 	 			<View style={styles.col}>
 		 			
 		 			<Button2 style={styles.bol} onPressIn={this.stopMusic6.bind(this)}>
-		 				■
+		 				 ■
 		 			</Button2>
 		 			
 		 		</View>
@@ -406,8 +406,8 @@ const styles =  {
 		backgroundColor: 'rgba(44, 62, 80,1.0)'
 	},
 	bol:{
-		// flex: 3,
-		flexDirection: 'column'
+		
+		// flexDirection: 'column'
 	}
 }
 

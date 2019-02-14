@@ -1,24 +1,23 @@
 {
   "expo": {
-  	"name": "Noise Machine",
-  	"slug": "NoiseMachine",
+    "name": "Noise Machine",
+    "slug": "NoiseMachine",
     "description": "Noise Machine, Play loops to make songs or noise!!",
     "icon": "./assets/images/NmLogo.png",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
-    "sdkVersion": "24.0.0",
-    "icon": "./assets/images/NmLogo.png",
+    "sdkVersion": "31.0.0",
     "privacy": "public",
-  "loading": {
-        "hideExponentText": true
-      },
-      "splash": {
-        "image": "./assets/images/splash.png",
-        "resizeMode": "cover"
-      },
-  "ios": {
-        "supportsTablet": false,
-        "bundleIdentifier": "com.pinedacamilo.noisemachine"
-      }
+    "loading": {
+      "hideExponentText": true
+    },
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.pinedacamilo.noisemachine"
+    }
   }
 }

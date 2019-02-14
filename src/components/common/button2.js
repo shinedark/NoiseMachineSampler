@@ -21,9 +21,9 @@ const styles = {
 		flex: 1,
 		paddingTop: 25,
 		paddingBottom: 25,
-		paddingLeft: 25,
-		paddingRight: 25,
-		alignSelf: 'stretch',
+		// paddingLeft: 25,
+		// paddingRight: 25,
+		// alignSelf: 'stretch',
 		backgroundColor: 'red',
 		borderRadius: 13,
 		borderWidth: 1,
@@ -31,9 +31,7 @@ const styles = {
 		marginLeft: 5,
 		marginRight: 5,
 		flexDirection: 'column',
-		justifyContent: 'space-between',
-		alignItems: 'stretch'
-
+		// justifyContent: 'space-between',
 	},
 	textStyle: {
 		alignSelf: 'center',
@@ -41,7 +39,9 @@ const styles = {
 		fontSize: 20,
 		fontWeight: '600',
 		paddingTop: 10,
-		paddingBottom: 10
+		paddingBottom: 10,
+		// paddingLeft: 25,
+		// paddingRight: 25,
 	}
 };
 
