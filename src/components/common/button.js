@@ -7,40 +7,26 @@ const Button = ({ style, onPressIn, children}) => {
 	const {buttonStyle, textStyle} = styles;
 	
 	return (
-		<TouchableOpacity  onPressIn={onPressIn} style={[buttonStyle, style]}>
-			<Text style={textStyle}> 
-				{children}
-			</Text>
-		</TouchableOpacity>
+		<TouchableOpacity  onPressIn={onPressIn} style={[buttonStyle, style]}/>
 	);
 };
 
 const styles = {
 	buttonStyle:{
 		flex: 1,
-		paddingTop: 25,
-		paddingBottom: 25,
-		// paddingLeft: 25,
-		// paddingRight: 25,
+		// paddingTop: 25,
+		// paddingBottom: 25,
+		// paddingLeft: 5,
+		// paddingRight: 5,
 		// alignSelf: 'stretch',
-		backgroundColor: 'red',
-		borderRadius: 13,
+		// backgroundColor: 'red',
+		borderRadius: 360,
 		borderWidth: 1,
 		borderColor: 'white',
 		marginLeft: 5,
 		marginRight: 5,
-		flexDirection: 'column',
+		// flexDirection: 'row',
 		// justifyContent: 'space-between',
-	},
-	textStyle: {
-		alignSelf: 'center',
-		color: 'white',
-		fontSize: 20,
-		fontWeight: '600',
-		paddingTop: 10,
-		paddingBottom: 10,
-		// paddingLeft: 25,
-		// paddingRight: 25,
 	}
 };
 

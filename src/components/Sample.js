@@ -1,6 +1,6 @@
 import React , { Component} from 'react';
 import { Text,TouchableWithoutFeedback, View } from 'react-native';
-import { CardSection, Button } from './common';
+import { Card, Button3, Header } from './common';
 import { Audio } from 'expo';
 import Noise from './Noise';
 import Noise2 from './Noise2';
@@ -11,6 +11,13 @@ import OneShot from './OneShot';
 
 class Sample extends Component {
 
+	constructor(props) {
+	    super(props);
+	    this.state = {
+	      newSamples: false
+	    }
+	  }
+
 	async componentWillMount(){
 	  
 	  try{
@@ -19,64 +26,45 @@ class Sample extends Component {
 	  } catch(error) {console.log(error);}
 	}	
 
+	refreshSounds = () =>{
+		if (!this.state.newSamples) {
+			this.setState({newSamples: true});
+		} else {
+			this.setState({newSamples: false});
+		}
+		
+	}
 
-	// stopRecording(){
-
-	// }	
-
-	// startRecording(){
-	// 	const recording = new Expo.Audio.Recording();
-	// 	try {
-	// 	  await recording.prepareToRecordAsync(Expo.Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
-	// 	  await recording.startAsync();
-	// 	  // You are now recording!
-	// 	} catch (error) {
-	// 	  // An error occurred!
-	// 	}
-
-	// }
-
-	// renderButtonRecording () {
-		 
-	//  	if (this.state.isRecording){
-	//  		return	(
-	//  			<View style={styles.col}>
-		 			
-	// 	 			<Button2 style={styles.bol} >
-	// 	 				Stop Recording
-	// 	 			</Button2>
-		 			
-	// 	 		</View>
-	//  		);
-
-	//  	}
-	//  	return(
-		 	
-	// 	 	<View style={styles.col} >	
-	// 	 		<Button style={styles.col1}>
-	// 	 			Start Recording
-	// 	 		</Button>
-		 		
-		 	
-	// 	 	</View>
-	//  	);
-	//  }
+	renderSetSamples(){
+		if (!this.state.newSamples) {
+		return(
+			<Button3 onPressIn={this.refreshSounds}>Search Samples</Button3>
+			)	
+		} else {
+			return (
+				<Button3 onPressIn={this.refreshSounds}>Set Samples</Button3>
+			)
+		}
+	}
 
 	render(){
+		
 		return (
+				<View style={{flex: 1 , flexDirection: 'row' }}>
+				
 					<TouchableWithoutFeedback style={{flex: 1}}>
-						<View style={{justifyContent: 'space-evenly', flex: 1 }}>
-								<Noise  style={{justifyContent: 'space-evenly', flex: 1 }}/>
+						<View style={{ flex: 1,  flexDirection: 'column' , marginBottom: 30, marginTop: 30 }}>
+							<Noise propNewSample={this.state.newSamples} />
 
-								<Noise2  style={{justifyContent: 'space-evenly', flex: 1 }}/>
+							<Noise2 propNewSample={this.state.newSamples} />
 
-								<Space2 style={{justifyContent: 'space-evenly', flex: 1 }}/>
+							<Space2 propNewSample={this.state.newSamples} />
 
-								<OneShot style={{justifyContent: 'space-evenly', flex: 1 }} />
-
-							
+							<OneShot propNewSample={this.state.newSamples} />
+							{this.renderSetSamples()}
 						</View>
 					</TouchableWithoutFeedback>
+				</View>
 
 		);
 

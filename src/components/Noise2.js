@@ -1,73 +1,132 @@
 import React , { Component} from 'react';
 import { Text, View , Image } from 'react-native';
 import { CardSection, Button, Button2 } from './common';
-import { Audio, Asset, AppLoading } from 'expo';
+import {  Audio, Asset, AppLoading } from 'expo';
 
 
+const wave1 = new Array();
+wave1[0] = require('../sounds/oneshot/o1.wav');
+wave1[1] = require('../sounds/oneshot/o2.wav');
+wave1[2] = require('../sounds/oneshot/o3.wav');
+wave1[3] = require('../sounds/oneshot/o4.wav');
+wave1[4] = require('../sounds/oneshot/o5.wav');
+wave1[5] = require('../sounds/oneshot/o6.wav');
+const size = wave1.length;
+const x = Math.floor(size*Math.random());
 
+const wave2 = new Array();
+wave2[0] = require('../sounds/oneshot/o1.wav');
+wave2[1] = require('../sounds/oneshot/o2.wav');
+wave2[2] = require('../sounds/oneshot/o3.wav');
+wave2[3] = require('../sounds/oneshot/o4.wav');
+wave2[4] = require('../sounds/oneshot/o5.wav');
+wave2[5] = require('../sounds/oneshot/o6.wav');
+const size2 = wave2.length;
+const x2 = Math.floor(size2*Math.random());
 
+const wave3 = new Array();
+wave3[0] = require('../sounds/oneshot/o1.wav');
+wave3[1] = require('../sounds/oneshot/o2.wav');
+wave3[2] = require('../sounds/oneshot/o3.wav');
+wave3[3] = require('../sounds/oneshot/o4.wav');
+wave3[4] = require('../sounds/oneshot/o5.wav');
+wave3[5] = require('../sounds/oneshot/o6.wav');
+const size3 = wave3.length;
+const x3 = Math.floor(size3*Math.random());
 
+const wave4 = new Array();
+wave4[0] = require('../sounds/oneshot/o1.wav');
+wave4[1] = require('../sounds/oneshot/o2.wav');
+wave4[2] = require('../sounds/oneshot/o3.wav');
+wave4[3] = require('../sounds/oneshot/o4.wav');
+wave4[4] = require('../sounds/oneshot/o5.wav');
+wave4[5] = require('../sounds/oneshot/o6.wav');
+const size4 = wave4.length;
+const x4 = Math.floor(size4*Math.random());
+
+const wave5 = new Array();
+wave5[0] = require('../sounds/oneshot/o1.wav');
+wave5[1] = require('../sounds/oneshot/o2.wav');
+wave5[2] = require('../sounds/oneshot/o3.wav');
+wave5[3] = require('../sounds/oneshot/o4.wav');
+wave5[4] = require('../sounds/oneshot/o5.wav');
+wave5[5] = require('../sounds/oneshot/o6.wav');
+const size5 = wave5.length;
+const x5 = Math.floor(size5*Math.random());
+
+const wave6 = new Array();
+wave6[0] = require('../sounds/oneshot/o1.wav');
+wave6[1] = require('../sounds/oneshot/o2.wav');
+wave6[2] = require('../sounds/oneshot/o3.wav');
+wave6[3] = require('../sounds/oneshot/o4.wav');
+wave6[4] = require('../sounds/oneshot/o5.wav');
+wave6[5] = require('../sounds/oneshot/o6.wav');
+const size6 = wave6.length;
+const x6 = Math.floor(size6*Math.random());
 
 class Noise2 extends Component {
 
 	state = {
-		playing1: false, 
-		playing2: false, 
-		playing3: false, 
-		playing4: false,
-		playing5: false,
-		playing6: false 
-	};
+			isReady: false,
+		};
 
 	async componentWillMount(){
+		this._cacheResourcesAsync();
 	  
 	  try{
 	    await Expo.Audio.setIsEnabledAsync(true);
 	  } catch(error) {console.log(error);}
 	}
+
+	async _cacheResourcesAsync() {
+	    const samples = [
+	      require('../sounds/oneshot/o1.wav'),
+	      require('../sounds/oneshot/o2.wav'),
+	      require('../sounds/oneshot/o3.wav'),
+	      require('../sounds/oneshot/o4.wav'),
+	      require('../sounds/oneshot/o5.wav'),
+	      require('../sounds/oneshot/o6.wav'),
+	    ];
+
+	    const cacheSamples = samples.map((samples) => {
+	      return Asset.fromModule(samples).downloadAsync();
+	    });
+	    return Promise.all(cacheSamples)
+
+	  }
 	
+
 
 	handlePLay1 = async () => {
 		const { playing1 } = this.state;
 		this.setState({ playing1: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s1.wav'));
+	    		await soundObject.loadAsync(wave1[x])
 	    	{ shouldPlay: true }
+
 	    	this.audioPlayer1  = soundObject;
-	    		this.audioPlayer1.playAsync();
-	    		this.audioPlayer1.setPositionAsync(0);
-	    		this.audioPlayer1.setIsLoopingAsync(true);
-	    		this.audioPlayer1.setVolumeAsync(0.6);
-	    			
+	    		await this.audioPlayer1.playAsync();
+	    		await this.audioPlayer1.setPositionAsync(0);
+	    		await this.audioPlayer1.setVolumeAsync(0.8);
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
 	    	
 	  		} 
 	}
-
-
-	stopMusic1 = async () => {
-		const { playing1 } = this.state;
-		this.setState({ playing1: false});
-	   	this.audioPlayer1.stopAsync();
-	 }  
-
 
 	handlePLay2 = async () => {
 		const { playing2 } = this.state;
 		this.setState({ playing2: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s2.wav'));
+	    		await soundObject.loadAsync(wave2[x2]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer2  = soundObject;
-	    		this.audioPlayer2.playAsync();
-	    		this.audioPlayer2.setPositionAsync(0);
-	    		this.audioPlayer2.setIsLoopingAsync(true);
-	    		this.audioPlayer2.setVolumeAsync(0.5);
-	    			
+		    	await this.audioPlayer2.playAsync();
+		    	await this.audioPlayer2.setPositionAsync(0);
+		    	await this.audioPlayer2.setVolumeAsync(0.7);	
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -75,37 +134,24 @@ class Noise2 extends Component {
 	  		} 
 	}
 
-	stopMusic2 = async () => {
-		const { playing2 } = this.state;
-		this.setState({ playing2: false});
-	    this.audioPlayer2.stopAsync();
-	 } 
 
 	handlePLay3 = async () => {
 		const { playing3 } = this.state;
 		this.setState({ playing3: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s3.wav'));
+	    		await soundObject.loadAsync(wave3[x3]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer3  = soundObject;
-	    		this.audioPlayer3.playAsync();
-	    		this.audioPlayer3.setPositionAsync(0);
-	    		this.audioPlayer3.setIsLoopingAsync(true);
-	    		this.audioPlayer3.setVolumeAsync(0.7);
-	    			
+		    	await this.audioPlayer3.playAsync();
+		    	await this.audioPlayer3.setPositionAsync(0);
+		    	await this.audioPlayer3.setVolumeAsync(0.5);
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
 	    	
 	  		} 
 	}
-
-	stopMusic3 = async () => {
-		const { playing3 } = this.state;
-		this.setState({ playing3: false});
-	   	this.audioPlayer3.stopAsync();
-	 } 
 
 
 
@@ -114,26 +160,18 @@ class Noise2 extends Component {
 		this.setState({ playing4: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s4.wav'));
+	    		await soundObject.loadAsync(wave4[x4]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer4  = soundObject;
-	    		this.audioPlayer4.playAsync();
-	    		this.audioPlayer4.setPositionAsync(0);
-	    		this.audioPlayer4.setIsLoopingAsync(true);
-	    		this.audioPlayer4.setVolumeAsync(0.3);
-	    			
+		    	await this.audioPlayer4.playAsync();
+		    	await this.audioPlayer4.setPositionAsync(0);
+		    	await this.audioPlayer4.setVolumeAsync(0.6);	
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
 	    	
 	  		} 
 	}
-
-	stopMusic4 = async () => {
-		const { playing4 } = this.state;
-		this.setState({ playing4: false});
-	   	this.audioPlayer4.stopAsync();
-	 } 
 
 
 	handlePLay5 = async () => {
@@ -141,14 +179,12 @@ class Noise2 extends Component {
 		this.setState({ playing5: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s5.wav'));
+	    		await soundObject.loadAsync(wave5[x5]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer5  = soundObject;
-	    		this.audioPlayer5.playAsync();
-	    		this.audioPlayer5.setPositionAsync(0);
-	    		this.audioPlayer5.setIsLoopingAsync(true);
-	    		this.audioPlayer5.setVolumeAsync(0.5);
-	    			
+		    	await this.audioPlayer5.playAsync();
+		    	await this.audioPlayer5.setPositionAsync(0);
+		    	await this.audioPlayer5.setVolumeAsync(0.7);	
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -156,25 +192,18 @@ class Noise2 extends Component {
 	  		} 
 	}
 
-	stopMusic5 = async () => {
-		const { playing5 } = this.state;
-		this.setState({ playing5: false});
-	   	this.audioPlayer5.stopAsync();
-	 } 
 
 	handlePLay6 = async () => {
 		const { playing6 } = this.state;
 		this.setState({ playing6: true});
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(require('../sounds/synth/s6.wav'));
+	    		await soundObject.loadAsync(wave6[x6]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer6  = soundObject;
-	    		this.audioPlayer6.playAsync();
-	    		this.audioPlayer6.setPositionAsync(0);
-	    		this.audioPlayer6.setIsLoopingAsync(true);
-	    		this.audioPlayer6.setVolumeAsync(0.5);
-	    			
+		    	await this.audioPlayer6.playAsync();
+		    	await this.audioPlayer6.setPositionAsync(0);
+		    	await this.audioPlayer6.setVolumeAsync(0.4);		
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -182,212 +211,50 @@ class Noise2 extends Component {
 	  		} 
 	}
 
-	stopMusic6 = async () => {
-		const { playing6 } = this.state;
-		this.setState({ playing6: false});
-	    this.audioPlayer6.stopAsync();
-	 } 
-
-	renderButton1 () {
-		 
-	 	if (this.state.playing1){
-	 		return	(
-	 			<View style={styles.col} >
-		 			<Button2 style={styles.bol} onPressIn={this.stopMusic1.bind(this)}>
-		 				■
-		 			</Button2>
-		 		</View>
-	 		);
-
-	 	}
-	 	return(
-		 	
-		 	<View style={styles.col} onTouchStart={ this.handlePLay1.bind(this)}>	
-		 		<Button style={styles.col1} >
-		 			▶︎
-		 		</Button>
-		 	</View>
-	 	);
-	 }
-	 renderButton2 () {
-	 	 
-	  	if (this.state.playing2){
-	  		return	(
-	  			<View style={styles.col}>
-	 	 			
-	 	 			<Button2 style={styles.bol} onPressIn={this.stopMusic2.bind(this)}>
-	 	 				■
-	 	 			</Button2>
-	 	 			
-	 	 		</View>
-	  		);
-
-	  	}
-	  	return(
-	 	 	
-	 	 	<View style={styles.col} onTouchStart={ this.handlePLay2.bind(this)}>	
-	 	 		<Button style={styles.col1} >
-	 	 			▶︎
-	 	 		</Button>
-	 	 		
-	 	 	
-	 	 	</View>
-	  	);
-	  }
-
-	renderButton3 () {
-		 
-	 	if (this.state.playing3){
-	 		return	(
-	 			<View style={styles.col}>
-		 			
-		 			<Button2 style={styles.bol} onPressIn={this.stopMusic3.bind(this)}>
-		 				■
-		 			</Button2>
-		 			
-		 		</View>
-	 		);
-
-	 	}
-	 	return(
-		 	
-		 	<View style={styles.col} onTouchStart={ this.handlePLay3.bind(this)}>	
-		 		<Button style={styles.col1} >
-		 			▶︎
-		 		</Button>
-		 		
-		 	
-		 	</View>
-	 	);
-	 }
-
-	 renderButton4 () {
-	 	 
-	  	if (this.state.playing4){
-	  		return	(
-	  			<View style={styles.col}>
-	 	 			
-	 	 			<Button2 style={styles.bol} onPressIn={this.stopMusic4.bind(this)}>
-	 	 				■
-	 	 			</Button2>
-	 	 			
-	 	 		</View>
-	  		);
-
-	  	}
-	  	return(
-	 	 	
-	 	 	<View style={styles.col} onTouchStart={ this.handlePLay4.bind(this)}>	
-	 	 		<Button style={styles.col1} >
-	 	 			▶︎
-	 	 		</Button>
-	 	 		
-	 	 	
-	 	 	</View>
-	  	);
-	  }
-
-	renderButton5 () {
-		 
-	 	if (this.state.playing5){
-	 		return	(
-	 			<View style={styles.col}>
-		 			
-		 			<Button2 style={styles.bol} onPressIn={this.stopMusic5.bind(this)}>
-		 				■
-		 			</Button2>
-		 			
-		 		</View>
-	 		);
-
-	 	}
-	 	return(
-		 	
-		 	<View style={styles.col} onTouchStart={ this.handlePLay5.bind(this)}>	
-		 		<Button style={styles.col1} >
-		 			▶︎
-		 		</Button>
-		 		
-		 	
-		 	</View>
-	 	);
-	 }
-
-	renderButton6 () {
-		 
-	 	if (this.state.playing6){
-	 		return	(
-	 			<View style={styles.col}>
-		 			
-		 			<Button2 style={styles.bol} onPressIn={this.stopMusic6.bind(this)}>
-		 				 ■
-		 			</Button2>
-		 			
-		 		</View>
-	 		);
-
-	 	}
-	 	return(
-		 	
-		 	<View style={styles.col} onTouchStart={ this.handlePLay6.bind(this)}>	
-		 		<Button style={styles.col1}>
-		 			▶︎
-		 		</Button>
-		 		
-		 	
-		 	</View>
-	 	);
-	 }
-
-	 async _cacheResourcesAsync() {
-	     const samples = [
-	       require('../sounds/synth/s1.wav'),
-	       require('../sounds/synth/s2.wav'),
-	       require('../sounds/synth/s3.wav'),
-	       require('../sounds/synth/s4.wav'),
-	       require('../sounds/synth/s5.wav'),
-	       require('../sounds/synth/s6.wav'),
-	     ];
-
-	     const cacheSamples = samples.map((samples) => {
-	       return Asset.fromModule(samples).downloadAsync();
-	     });
-	     return Promise.all(cacheSamples)
-
-	   }
-
 
 	render(){
 
-		
 		if (!this.state.isReady) {
 		      return (
-		              	<View> 
-		        	        <AppLoading
-		        	          startAsync={this._cacheResourcesAsync}
-		        	          onFinish={() => this.setState({ isReady: true })}
-		        	          onError={console.warn}
-		        	        />
-		                	<Image 	
-		                  		source={require('../../assets/images/nm.gif')}
-		                  		style={{flex:1, height:100, width: 350, padding: 1}}
-		                  		
-		                  	/>
-		                
-		                </View>
-		         
+		             	<View> 
+		       	        <AppLoading
+		       	          startAsync={this._cacheResourcesAsync}
+		       	          onFinish={() => this.setState({ isReady: true })}
+		       	          onError={console.warn}
+		       	        />
+		               	<Image 	
+		                 		source={require('../../assets/images/nm.gif')}
+		                 		style={{flex:1, height:100, width: 350, padding: 1}}
+		                 		
+		                 	/>
+		               
+		               </View>
+		          	
+		        
 		      );
 		    }
 		
 		return (
 			<View style={{flex: 2}}>
 				<View style={styles.col}>
-					{this.renderButton1()}
-					{this.renderButton2()}
-					{this.renderButton3()}
-					{this.renderButton4()}
-					{this.renderButton5()}
-					{this.renderButton6()}
+					<View style={styles.col} onTouchStart={ this.handlePLay1}>	
+						<Button style={styles.col1}/>
+					</View>
+					<View style={styles.col} onTouchStart={ this.handlePLay2}>	
+						<Button style={styles.col1}/>
+					</View>
+					<View style={styles.col} onTouchStart={ this.handlePLay3}>	
+						<Button style={styles.col1}/>
+					</View>
+					<View style={styles.col} onTouchStart={ this.handlePLay4}>	
+						<Button style={styles.col1}/>
+					</View>
+					<View style={styles.col} onTouchStart={ this.handlePLay5}>	
+						<Button style={styles.col1}/>
+					</View>
+					<View style={styles.col} onTouchStart={ this.handlePLay6}>	
+						<Button style={styles.col1}/>
+					</View>
 				</View>
 			</View>
 
@@ -403,11 +270,11 @@ const styles =  {
 		flex: 2
 	}, 
 	col1:{
-		backgroundColor: 'rgba(44, 62, 80,1.0)'
+		backgroundColor: 'rgba(255, 221, 0, 1)'
 	},
 	bol:{
-		
-		// flexDirection: 'column'
+		// flex: 1,
+		flexDirection: 'column'
 	}
 }
 

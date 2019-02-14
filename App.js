@@ -1,5 +1,7 @@
 import React from 'react';
+import { View } from 'react-native';
 import Sample from './src/components/Sample';
+import { Header } from './src/components/common';
 import { Audio, Asset, AppLoading } from 'expo';
 
 
@@ -19,6 +21,7 @@ export default class App extends React.Component {
             interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
             shouldDuckAndroid: false,
             interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+            playThroughEarpieceAndroid: true
     });
   }
 
@@ -33,7 +36,10 @@ export default class App extends React.Component {
           );
         }
     return (
-      <Sample/>
+      <View style={{flex: 1 , marginTop: 30, marginBottom: 10}}>
+        <Header headerText={'Noise Machine'}/>
+          <Sample/>
+      </View>
     );
   }
   async _cacheResourcesAsync() {
