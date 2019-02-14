@@ -1,6 +1,6 @@
 import React , { Component} from 'react';
 import { Text,TouchableWithoutFeedback, View } from 'react-native';
-import { Card, Button3, Header } from './common';
+import { Card, Button3, Header, CardSection } from './common';
 import { Audio } from 'expo';
 import Noise from './Noise';
 import Noise2 from './Noise2';
@@ -54,13 +54,18 @@ class Sample extends Component {
 				
 					<TouchableWithoutFeedback style={{flex: 1}}>
 						<View style={{ flex: 1,  flexDirection: 'column' , marginBottom: 30, marginTop: 30 }}>
+							<CardSection  style={{ flex: 2}}>
 							<Noise propNewSample={this.state.newSamples} />
-
+							</CardSection>
+							<CardSection  style={{ flex: 2}}>
 							<Noise2 propNewSample={this.state.newSamples} />
-
+							</CardSection>
+							<CardSection  style={{ flex: 2}}>
 							<Space2 propNewSample={this.state.newSamples} />
-
+							</CardSection>
+							<CardSection  style={{ flex: 2}}>
 							<OneShot propNewSample={this.state.newSamples} />
+							</CardSection>
 							{this.renderSetSamples()}
 						</View>
 					</TouchableWithoutFeedback>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text , View, Linking, TouchableOpacity} from 'react-native';
+import { Text , View, Linking, TouchableOpacity, Modal , Button} from 'react-native';
 
 
 
@@ -31,11 +31,48 @@ class GifOverlay extends React.Component {
   }
 }
 
+class GifOverlay2 extends React.Component {
+  state = {
+    visible: true,
+    isVisible: false
+  }
+
+  render() {
+    return this.state.visible ? (
+      <TouchableOpacity style={styles.touchable2} onPress={() => this.setState({ isVisible: true })}>
+      <View style={styles.container}>
+        <Text style={styles.paragraph2}>Info</Text>
+        <Modal
+          visible={this.state.isVisible}
+          transparent
+          animationType="slide"
+          
+        >
+            <View style={styles.container2}>
+              <Text style={styles.textStyle2}>Instructions will go here</Text>
+              <Button title='close' onPress={() => this.setState({isVisible: false})} />
+            </View>
+        </Modal>
+      </View>
+      </TouchableOpacity>
+    ):null;
+  }
+
+  setVisible(visible) {
+    this.setState({ visible });
+  }
+}
+
 const styles = {
     touchable: {
         position: 'absolute',
         bottom: 18,
         right: 18,
+    },
+    touchable2: {
+        position: 'absolute',
+        bottom: 18,
+        left: 18,
     },
   container: {
     alignItems: 'center',
@@ -46,8 +83,20 @@ const styles = {
     opacity: 0.9,
     borderRadius: 4    
   },
+  container2: {
+    backgroundColor: 'rgba(0,0,0,0.75)',
+    position: 'relative',
+    flex: 1,
+    justifyContent: 'center'
+  },
   paragraph: {
-    fontSize: 30,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+  paragraph2: {
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#34495e',
@@ -68,6 +117,13 @@ const styles = {
   	fontSize: 25,
   	justifyContent: 'center',
     fontFamily: 'DamascusBold'
+  },
+  textStyle2:{
+    fontSize: 25,
+    justifyContent: 'center',
+    fontFamily: 'Damascus',
+    color: 'white'
+
   }
 };
 
@@ -76,6 +132,7 @@ const Header = (props) => {
 
 	return (
 		<View style={viewStyle}>
+      <GifOverlay2/>
 			<Text style={textStyle}>{props.headerText}</Text>
 			<GifOverlay/>
 		</View>
