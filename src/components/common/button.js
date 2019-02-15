@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity} from 'react-native';
+import { TouchableOpacity, Image} from 'react-native';
 import { LinearGradient } from 'expo';
 
 
@@ -8,7 +8,7 @@ const Button = ({ style, onPressIn, children}) => {
 	const {buttonStyle, buttonStyle1} = styles;
 	
 	return (
-		<LinearGradient
+          <LinearGradient
           colors={[ '#ffffff', '#07234f']}
           style={buttonStyle}>
           <TouchableOpacity  onPressIn={onPressIn} style={buttonStyle1}/>

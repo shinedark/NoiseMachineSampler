@@ -74,22 +74,6 @@ class Noise2 extends Component {
 	      require('../sounds/oneshot/14.wav'),
 	      require('../sounds/oneshot/15.wav'),
 	      require('../sounds/oneshot/16.wav'),
-	      require('../sounds/oneshot/17.wav'),
-	      require('../sounds/oneshot/18.wav'),
-	      require('../sounds/oneshot/19.wav'),
-	      require('../sounds/oneshot/20.wav'),
-	      require('../sounds/oneshot/21.wav'),
-	      require('../sounds/oneshot/22.wav'),
-	      require('../sounds/oneshot/23.wav'),
-	      require('../sounds/oneshot/24.wav'),
-	      require('../sounds/oneshot/25.wav'),
-	      require('../sounds/oneshot/26.wav'),
-	      require('../sounds/oneshot/o1.wav'),
-	      require('../sounds/oneshot/o2.wav'),
-	      require('../sounds/oneshot/o3.wav'),
-	      require('../sounds/oneshot/o4.wav'),
-	      require('../sounds/oneshot/o5.wav'),
-	      require('../sounds/oneshot/o6.wav'),
 	    ];
 
 	    const cacheSamples = samples.map((samples) => {

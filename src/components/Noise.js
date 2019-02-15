@@ -5,32 +5,32 @@ import {  Audio, Asset, AppLoading } from 'expo';
 
 
 const wave1 = new Array();
-wave1[0] = require('../sounds/oneshot/o1.wav');
-wave1[1] = require('../sounds/oneshot/o2.wav');
-wave1[2] = require('../sounds/oneshot/o3.wav');
-wave1[3] = require('../sounds/oneshot/o4.wav');
-wave1[4] = require('../sounds/oneshot/o5.wav');
-wave1[5] = require('../sounds/oneshot/o6.wav');
+wave1[0] = require('../sounds/oneshot/lol.wav');
+wave1[1] = require('../sounds/oneshot/sd.wav');
+wave1[2] = require('../sounds/oneshot/help.wav');
+wave1[3] = require('../sounds/oneshot/please.wav');
+wave1[4] = require('../sounds/oneshot/go.wav');
+wave1[5] = require('../sounds/oneshot/mind.wav');
 const size = wave1.length;
 const y = () => { x= Math.floor(size*Math.random())};
 
 const wave2 = new Array();
-wave2[0] = require('../sounds/oneshot/7.wav');
-wave2[1] = require('../sounds/oneshot/8.wav');
-wave2[2] = require('../sounds/oneshot/9.wav');
-wave2[3] = require('../sounds/oneshot/10.wav');
-wave2[4] = require('../sounds/oneshot/11.wav');
-wave2[5] = require('../sounds/oneshot/12.wav');
+wave2[0] = require('../sounds/oneshot/1.wav');
+wave2[1] = require('../sounds/oneshot/2.wav');
+wave2[2] = require('../sounds/oneshot/3.wav');
+wave2[3] = require('../sounds/oneshot/4.wav');
+wave2[4] = require('../sounds/oneshot/5.wav');
+wave2[5] = require('../sounds/oneshot/6.wav');
 const size2 = wave2.length;
 const y2 = () => { x2= Math.floor(size2*Math.random())};
 
 const wave3 = new Array();
-wave3[0] = require('../sounds/oneshot/13.wav');
-wave3[1] = require('../sounds/oneshot/14.wav');
-wave3[2] = require('../sounds/oneshot/15.wav');
-wave3[3] = require('../sounds/oneshot/16.wav');
-wave3[4] = require('../sounds/oneshot/17.wav');
-wave3[5] = require('../sounds/oneshot/18.wav');
+wave3[0] = require('../sounds/oneshot/7.wav');
+wave3[1] = require('../sounds/oneshot/8.wav');
+wave3[2] = require('../sounds/oneshot/9.wav');
+wave3[3] = require('../sounds/oneshot/10.wav');
+wave3[4] = require('../sounds/oneshot/11.wav');
+wave3[5] = require('../sounds/oneshot/12.wav');
 const size3 = wave3.length;
 const y3 = () => { x3= Math.floor(size3*Math.random())};
 
@@ -70,26 +70,12 @@ class Noise extends Component {
 	      require('../sounds/oneshot/10.wav'),
 	      require('../sounds/oneshot/11.wav'),
 	      require('../sounds/oneshot/12.wav'),
-	      require('../sounds/oneshot/13.wav'),
-	      require('../sounds/oneshot/14.wav'),
-	      require('../sounds/oneshot/15.wav'),
-	      require('../sounds/oneshot/16.wav'),
-	      require('../sounds/oneshot/17.wav'),
-	      require('../sounds/oneshot/18.wav'),
-	      require('../sounds/oneshot/19.wav'),
-	      require('../sounds/oneshot/20.wav'),
-	      require('../sounds/oneshot/21.wav'),
-	      require('../sounds/oneshot/22.wav'),
-	      require('../sounds/oneshot/23.wav'),
-	      require('../sounds/oneshot/24.wav'),
-	      require('../sounds/oneshot/25.wav'),
-	      require('../sounds/oneshot/26.wav'),
-	      require('../sounds/oneshot/o1.wav'),
-	      require('../sounds/oneshot/o2.wav'),
-	      require('../sounds/oneshot/o3.wav'),
-	      require('../sounds/oneshot/o4.wav'),
-	      require('../sounds/oneshot/o5.wav'),
-	      require('../sounds/oneshot/o6.wav'),
+	      require('../sounds/oneshot/mind.wav'),
+	      require('../sounds/oneshot/lol.wav'),
+	      require('../sounds/oneshot/sd.wav'),
+	      require('../sounds/oneshot/help.wav'),
+	      require('../sounds/oneshot/go.wav'),
+	      require('../sounds/oneshot/please.wav'),
 	    ];
 
 	    const cacheSamples = samples.map((samples) => {
