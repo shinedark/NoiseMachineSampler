@@ -17,7 +17,7 @@ export default class App extends React.Component {
     this._cacheResourcesAsync();
     Expo.Audio.setAudioModeAsync({
             playsInSilentModeIOS: true,
-            allowsRecordingIOS: true,
+            allowsRecordingIOS: false,
             interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
             shouldDuckAndroid: false,
             interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,

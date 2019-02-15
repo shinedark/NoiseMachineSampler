@@ -122,7 +122,7 @@ class Noise extends Component {
 	    	this.audioPlayer2  = soundObject;
 		    	await this.audioPlayer2.playAsync();
 		    	await this.audioPlayer2.setPositionAsync(0);
-		    	await this.audioPlayer2.setVolumeAsync(1);	
+		    	await this.audioPlayer2.setVolumeAsync(0.9);	
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -144,7 +144,7 @@ class Noise extends Component {
 	    	this.audioPlayer3  = soundObject;
 		    	await this.audioPlayer3.playAsync();
 		    	await this.audioPlayer3.setPositionAsync(0);
-		    	await this.audioPlayer3.setVolumeAsync(1);
+		    	await this.audioPlayer3.setVolumeAsync(0.8);
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
