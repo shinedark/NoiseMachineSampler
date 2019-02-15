@@ -49,8 +49,16 @@ class GifOverlay2 extends React.Component {
           
         >
             <View style={styles.container2}>
-              <Text style={styles.textStyle2}>Instructions will go here</Text>
-              <Button title='close' onPress={() => this.setState({isVisible: false})} />
+              <Text style={styles.textStyle2}>
+                There are 12 slots available to  loaded. Each slot has 6 sounds to pick from.
+
+                To Load slots click on Search Samples then press each slot you want to load. 
+
+                As you press each slot samples will play, if you like what you hear press Set samples.
+
+                Make Noise !!!
+              </Text>
+              <Button style={{fontSize: 26}} title='close' onPress={() => this.setState({isVisible: false})} />
             </View>
         </Modal>
       </View>
@@ -87,7 +95,8 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.75)',
     position: 'relative',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 30
   },
   paragraph: {
     fontSize: 20,
@@ -122,7 +131,7 @@ const styles = {
     fontSize: 25,
     justifyContent: 'center',
     fontFamily: 'Damascus',
-    color: 'white'
+    color: 'white',
 
   }
 };

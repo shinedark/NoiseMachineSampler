@@ -1,6 +1,6 @@
 import React , { Component} from 'react';
-import { Text,TouchableWithoutFeedback, View } from 'react-native';
-import { Card, Button3, Header, CardSection } from './common';
+import { TouchableWithoutFeedback, View } from 'react-native';
+import {  Button3, CardSection } from './common';
 import { Audio } from 'expo';
 import Noise from './Noise';
 import Noise2 from './Noise2';
@@ -38,7 +38,7 @@ class Sample extends Component {
 	renderSetSamples(){
 		if (!this.state.newSamples) {
 		return(
-			<Button3 onPressIn={this.refreshSounds}>Search Samples</Button3>
+				<Button3 onPressIn={this.refreshSounds}>Search Samples</Button3>
 			)	
 		} else {
 			return (
@@ -76,34 +76,4 @@ class Sample extends Component {
 	}
 }
 
-
-// const styles =  {
-// 	text: {
-//     color: 'black',
-//     fontSize: 23,
-//     fontWeight: 'bold',
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     position: 'relative',
-//     paddingTop: 5
-//   },
-//   col: {
-//   	flex: 2,
-//   	flexDirection: 'row'
-//   }, 
-//   col1:{
-//   	backgroundColor: 'rgba(10, 146, 10, 1.0)'
-//   },
-//   bol:{
-//   	// flex: 1,
-//   	flexDirection: 'column'
-//   }
-// }
-
-
-
 export default Sample;
-
-
-// onTouchStart={ this.handleRecording.bind(this)
-// onPressIn={this.stopRecording.bind(this)}

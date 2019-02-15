@@ -1,16 +1,16 @@
 import React , { Component} from 'react';
-import { Text, View , Image } from 'react-native';
-import { CardSection, Button, Button2 } from './common';
+import { View , Image } from 'react-native';
+import { Button } from './common';
 import {  Audio, Asset, AppLoading } from 'expo';
 
 
 const wave1 = new Array();
-wave1[0] = require('../sounds/oneshot/1.wav');
-wave1[1] = require('../sounds/oneshot/2.wav');
-wave1[2] = require('../sounds/oneshot/3.wav');
-wave1[3] = require('../sounds/oneshot/4.wav');
-wave1[4] = require('../sounds/oneshot/5.wav');
-wave1[5] = require('../sounds/oneshot/6.wav');
+wave1[0] = require('../sounds/oneshot/o1.wav');
+wave1[1] = require('../sounds/oneshot/o2.wav');
+wave1[2] = require('../sounds/oneshot/o3.wav');
+wave1[3] = require('../sounds/oneshot/o4.wav');
+wave1[4] = require('../sounds/oneshot/o5.wav');
+wave1[5] = require('../sounds/oneshot/o6.wav');
 const size = wave1.length;
 const y = () => { x= Math.floor(size*Math.random())};
 
@@ -34,35 +34,6 @@ wave3[5] = require('../sounds/oneshot/18.wav');
 const size3 = wave3.length;
 const y3 = () => { x3= Math.floor(size3*Math.random())};
 
-const wave4 = new Array();
-wave4[0] = require('../sounds/oneshot/19.wav');
-wave4[1] = require('../sounds/oneshot/20.wav');
-wave4[2] = require('../sounds/oneshot/21.wav');
-wave4[3] = require('../sounds/oneshot/22.wav');
-wave4[4] = require('../sounds/oneshot/23.wav');
-wave4[5] = require('../sounds/oneshot/24.wav');
-const size4 = wave4.length;
-const y4 = () => { x4= Math.floor(size4*Math.random())};
-
-const wave5 = new Array();
-wave5[0] = require('../sounds/oneshot/25.wav');
-wave5[1] = require('../sounds/oneshot/26.wav');
-wave5[2] = require('../sounds/oneshot/3.wav');
-wave5[3] = require('../sounds/oneshot/4.wav');
-wave5[4] = require('../sounds/oneshot/5.wav');
-wave5[5] = require('../sounds/oneshot/6.wav');
-const size5 = wave5.length;
-const y5 = () => { x5= Math.floor(size5*Math.random())};
-
-const wave6 = new Array();
-wave6[0] = require('../sounds/oneshot/o1.wav');
-wave6[1] = require('../sounds/oneshot/o2.wav');
-wave6[2] = require('../sounds/oneshot/o3.wav');
-wave6[3] = require('../sounds/oneshot/o4.wav');
-wave6[4] = require('../sounds/oneshot/o5.wav');
-wave6[5] = require('../sounds/oneshot/o6.wav');
-const size6 = wave6.length;
-const y6 = () => { x6= Math.floor(size6*Math.random())};
 
 class Noise extends Component {
 
@@ -197,72 +168,6 @@ class Noise extends Component {
 
 
 
-	handlePLay4 = async () => {
-		const { samplesR } = this.state;
-			if (samplesR) {
-				y4()
-
-			} 
-	  	const soundObject = new Expo.Audio.Sound();
-	  		try {
-	    		await soundObject.loadAsync(wave4[x4]);
-	    	{ shouldPlay: true }
-	    	this.audioPlayer4  = soundObject;
-		    	await this.audioPlayer4.playAsync();
-		    	await this.audioPlayer4.setPositionAsync(0);
-		    	await this.audioPlayer4.setVolumeAsync(1);	
-	   		 // Your sound is playing!
-	  		} catch (error) {
-	    	// An error occurred!
-	    	
-	  		} 
-	}
-
-
-	handlePLay5 = async () => {
-		const { samplesR } = this.state;
-		if (samplesR) {
-			y5()
-
-		} 
-	  	const soundObject = new Expo.Audio.Sound();
-	  		try {
-	    		await soundObject.loadAsync(wave5[x5]);
-	    	{ shouldPlay: true }
-	    	this.audioPlayer5  = soundObject;
-		    	await this.audioPlayer5.playAsync();
-		    	await this.audioPlayer5.setPositionAsync(0);
-		    	await this.audioPlayer5.setVolumeAsync(1);	
-	   		 // Your sound is playing!
-	  		} catch (error) {
-	    	// An error occurred!
-	    	
-	  		} 
-	}
-
-
-	handlePLay6 = async () => {
-		const { samplesR } = this.state;
-		if (samplesR) {
-			y6()
-
-		} 
-	  	const soundObject = new Expo.Audio.Sound();
-	  		try {
-	    		await soundObject.loadAsync(wave6[x6]);
-	    	{ shouldPlay: true }
-	    	this.audioPlayer6  = soundObject;
-		    	await this.audioPlayer6.playAsync();
-		    	await this.audioPlayer6.setPositionAsync(0);
-		    	await this.audioPlayer6.setVolumeAsync(1);		
-	   		 // Your sound is playing!
-	  		} catch (error) {
-	    	// An error occurred!
-	    	
-	  		} 
-	}
-
-
 	render(){
 
 		if (!this.state.isReady) {
@@ -295,15 +200,6 @@ class Noise extends Component {
 						<Button style={styles.col1}/>
 					</View>
 					<View style={styles.col} onTouchStart={ this.handlePLay3}>	
-						<Button style={styles.col1}/>
-					</View>
-					<View style={styles.col} onTouchStart={ this.handlePLay4}>	
-						<Button style={styles.col1}/>
-					</View>
-					<View style={styles.col} onTouchStart={ this.handlePLay5}>	
-						<Button style={styles.col1}/>
-					</View>
-					<View style={styles.col} onTouchStart={ this.handlePLay6}>	
 						<Button style={styles.col1}/>
 					</View>
 				</View>

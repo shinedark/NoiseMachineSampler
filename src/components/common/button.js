@@ -1,33 +1,37 @@
 import React from 'react';
-import { Text, TouchableOpacity} from 'react-native';
+import { TouchableOpacity} from 'react-native';
+import { LinearGradient } from 'expo';
 
 
 const Button = ({ style, onPressIn, children}) => {
 	
-	const {buttonStyle, textStyle} = styles;
+	const {buttonStyle, buttonStyle1} = styles;
 	
 	return (
-		<TouchableOpacity  onPressIn={onPressIn} style={[buttonStyle, style]}/>
+		<LinearGradient
+          colors={[ '#ffffff', '#07234f']}
+          style={buttonStyle}>
+          <TouchableOpacity  onPressIn={onPressIn} style={buttonStyle1}/>
+        </LinearGradient>
 	);
 };
 
 const styles = {
 	buttonStyle:{
 		flex: 1,
-		// paddingTop: 25,
-		// paddingBottom: 25,
-		// paddingLeft: 5,
-		// paddingRight: 5,
-		// alignSelf: 'stretch',
-		// backgroundColor: 'red',
 		borderRadius: 360,
 		borderWidth: 1,
-		borderColor: 'white',
-		marginLeft: 5,
-		marginRight: 5,
-		// flexDirection: 'row',
-		// justifyContent: 'space-between',
-	}
+		borderColor: '#e6f9ff',
+		marginLeft: 2,
+		marginRight: 2,
+	},
+	buttonStyle1:{
+		flex: 1,
+		backgroundColor: 'transparent',
+		borderRadius: 360,
+		borderWidth: 3,
+		borderColor: '#9b9b9b',
+	},
 };
 
 export { Button };
