@@ -11,8 +11,7 @@ wave1[2] = require('../sounds/oneshot/33.wav');
 wave1[3] = require('../sounds/oneshot/30.wav');
 wave1[4] = require('../sounds/oneshot/29.wav');
 wave1[5] = require('../sounds/oneshot/28.wav');
-const size = wave1.length;
-const y = () => { x= Math.floor(size*Math.random())};
+
 
 const wave2 = new Array();
 wave2[0] = require('../sounds/oneshot/27.wav');
@@ -21,8 +20,7 @@ wave2[2] = require('../sounds/oneshot/25.wav');
 wave2[3] = require('../sounds/oneshot/34.wav');
 wave2[4] = require('../sounds/oneshot/23.wav');
 wave2[5] = require('../sounds/oneshot/22.wav');
-const size2 = wave2.length;
-const y2 = () => { x2= Math.floor(size2*Math.random())};
+
 
 const wave3 = new Array();
 wave3[0] = require('../sounds/oneshot/21.wav');
@@ -31,14 +29,13 @@ wave3[2] = require('../sounds/oneshot/19.wav');
 wave3[3] = require('../sounds/oneshot/18.wav');
 wave3[4] = require('../sounds/oneshot/17.wav');
 wave3[5] = require('../sounds/oneshot/16.wav');
-const size3 = wave3.length;
-const y3 = () => { x3= Math.floor(size3*Math.random())};
 
 
-class Space extends Component {
+class Space2 extends Component {
 
 	constructor(props) {
 	    super(props);
+	    this.index = 0;
 	    this.state = {
 	      samplesR: null,
 	      isReady: false
@@ -58,24 +55,24 @@ class Space extends Component {
 
 	async _cacheResourcesAsync() {
 	    const samples = [
-	      require('../sounds/oneshot/31.wav'),
-	      require('../sounds/oneshot/32.wav'),
-	      require('../sounds/oneshot/33.wav'),
-	      require('../sounds/oneshot/30.wav'),
-	      require('../sounds/oneshot/29.wav'),
-	      require('../sounds/oneshot/28.wav'),
-	      require('../sounds/oneshot/27.wav'),
-	      require('../sounds/oneshot/26.wav'),
-	      require('../sounds/oneshot/25.wav'),
-	      require('../sounds/oneshot/34.wav'),
-	      require('../sounds/oneshot/23.wav'),
-	      require('../sounds/oneshot/22.wav'),
-	      require('../sounds/oneshot/21.wav'),
-	      require('../sounds/oneshot/20.wav'),
-	      require('../sounds/oneshot/16.wav'),
-	      require('../sounds/oneshot/17.wav'),
-	      require('../sounds/oneshot/18.wav'),
-	      require('../sounds/oneshot/19.wav'),
+	      require('../sounds/oneshot/1.wav'),
+	      require('../sounds/oneshot/2.wav'),
+	      require('../sounds/oneshot/3.wav'),
+	      require('../sounds/oneshot/4.wav'),
+	      require('../sounds/oneshot/5.wav'),
+	      require('../sounds/oneshot/6.wav'),
+	      require('../sounds/oneshot/7.wav'),
+	      require('../sounds/oneshot/8.wav'),
+	      require('../sounds/oneshot/9.wav'),
+	      require('../sounds/oneshot/10.wav'),
+	      require('../sounds/oneshot/11.wav'),
+	      require('../sounds/oneshot/12.wav'),
+	      require('../sounds/oneshot/mind.wav'),
+	      require('../sounds/oneshot/lol.wav'),
+	      require('../sounds/oneshot/sd.wav'),
+	      require('../sounds/oneshot/help.wav'),
+	      require('../sounds/oneshot/go.wav'),
+	      require('../sounds/oneshot/please.wav'),
 	    ];
 
 	    const cacheSamples = samples.map((samples) => {
@@ -86,16 +83,17 @@ class Space extends Component {
 	  }
 	
 
+	y(forward){ this.index = (this.index + (forward ? 1 : wave1.length - 1)) % wave1.length;};
 
 	handlePLay1 = async () => {
 		const { samplesR } = this.state;
 		if (samplesR) {
-			y()
+			this.y()
 
 		} 
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(wave1[x])
+	    		await soundObject.loadAsync(wave1[this.index])
 	    	{ shouldPlay: true }
 
 	    	this.audioPlayer1  = soundObject;
@@ -109,20 +107,22 @@ class Space extends Component {
 	  		} 
 	}
 
+	y2(forward){ this.index = (this.index + (forward ? 1 : wave2.length - 1)) % wave2.length;};
+
 	handlePLay2 = async () => {
 		const { samplesR } = this.state;
 		if (samplesR) {
-			y2()
+			this.y2()
 
 		} 
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(wave2[x2]);
+	    		await soundObject.loadAsync(wave2[this.index]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer2  = soundObject;
 		    	await this.audioPlayer2.playAsync();
 		    	await this.audioPlayer2.setPositionAsync(0);
-		    	await this.audioPlayer2.setVolumeAsync(1);	
+		    	await this.audioPlayer2.setVolumeAsync(0.9);	
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -130,21 +130,22 @@ class Space extends Component {
 	  		} 
 	}
 
+	y3(forward){ this.index = (this.index + (forward ? 1 : wave3.length - 1)) % wave3.length;};
 
 	handlePLay3 = async () => {
 		const { samplesR } = this.state;
 		if (samplesR) {
-			y3()
+			this.y3()
 
 		} 
 	  	const soundObject = new Expo.Audio.Sound();
 	  		try {
-	    		await soundObject.loadAsync(wave3[x3]);
+	    		await soundObject.loadAsync(wave3[this.index]);
 	    	{ shouldPlay: true }
 	    	this.audioPlayer3  = soundObject;
 		    	await this.audioPlayer3.playAsync();
 		    	await this.audioPlayer3.setPositionAsync(0);
-		    	await this.audioPlayer3.setVolumeAsync(1);
+		    	await this.audioPlayer3.setVolumeAsync(0.8);
 	   		 // Your sound is playing!
 	  		} catch (error) {
 	    	// An error occurred!
@@ -153,8 +154,6 @@ class Space extends Component {
 	}
 
 
-
-	
 
 	render(){
 
@@ -214,7 +213,7 @@ const styles =  {
 }
 
 
-export default Space;
+export default Space2;
 
 
 
