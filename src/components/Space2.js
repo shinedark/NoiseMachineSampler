@@ -5,30 +5,30 @@ import {  Audio, Asset, AppLoading } from 'expo';
 
 
 const wave1 = new Array();
-wave1[0] = require('../sounds/oneshot/31.wav');
-wave1[1] = require('../sounds/oneshot/32.wav');
-wave1[2] = require('../sounds/oneshot/33.wav');
-wave1[3] = require('../sounds/oneshot/30.wav');
-wave1[4] = require('../sounds/oneshot/29.wav');
-wave1[5] = require('../sounds/oneshot/28.wav');
+wave1[0] = require('../sounds/oneshot/r3/r1.wav');
+wave1[1] = require('../sounds/oneshot/r3/r2.wav');
+wave1[2] = require('../sounds/oneshot/r3/r3.wav');
+wave1[3] = require('../sounds/oneshot/r3/r4.wav');
+wave1[4] = require('../sounds/oneshot/r3/r5.wav');
+wave1[5] = require('../sounds/oneshot/r3/r6.wav');
 
 
 const wave2 = new Array();
-wave2[0] = require('../sounds/oneshot/27.wav');
-wave2[1] = require('../sounds/oneshot/26.wav');
-wave2[2] = require('../sounds/oneshot/25.wav');
-wave2[3] = require('../sounds/oneshot/34.wav');
-wave2[4] = require('../sounds/oneshot/23.wav');
-wave2[5] = require('../sounds/oneshot/22.wav');
+wave2[0] = require('../sounds/oneshot/r4/r1.wav');
+wave2[1] = require('../sounds/oneshot/r4/r2.wav');
+wave2[2] = require('../sounds/oneshot/r4/r3.wav');
+wave2[3] = require('../sounds/oneshot/r4/r4.wav');
+wave2[4] = require('../sounds/oneshot/r4/r5.wav');
+wave2[5] = require('../sounds/oneshot/r4/r6.wav');
 
 
 const wave3 = new Array();
-wave3[0] = require('../sounds/oneshot/21.wav');
-wave3[1] = require('../sounds/oneshot/20.wav');
-wave3[2] = require('../sounds/oneshot/19.wav');
-wave3[3] = require('../sounds/oneshot/18.wav');
-wave3[4] = require('../sounds/oneshot/17.wav');
-wave3[5] = require('../sounds/oneshot/16.wav');
+wave3[0] = require('../sounds/oneshot/r5/r1.wav');
+wave3[1] = require('../sounds/oneshot/r5/r2.wav');
+wave3[2] = require('../sounds/oneshot/r5/r3.wav');
+wave3[3] = require('../sounds/oneshot/r5/r4.wav');
+wave3[4] = require('../sounds/oneshot/r5/r5.wav');
+wave3[5] = require('../sounds/oneshot/r5/r6.wav');
 
 
 class Space2 extends Component {
@@ -55,24 +55,24 @@ class Space2 extends Component {
 
 	async _cacheResourcesAsync() {
 	    const samples = [
-	      require('../sounds/oneshot/1.wav'),
-	      require('../sounds/oneshot/2.wav'),
-	      require('../sounds/oneshot/3.wav'),
-	      require('../sounds/oneshot/4.wav'),
-	      require('../sounds/oneshot/5.wav'),
-	      require('../sounds/oneshot/6.wav'),
-	      require('../sounds/oneshot/7.wav'),
-	      require('../sounds/oneshot/8.wav'),
-	      require('../sounds/oneshot/9.wav'),
-	      require('../sounds/oneshot/10.wav'),
-	      require('../sounds/oneshot/11.wav'),
-	      require('../sounds/oneshot/12.wav'),
-	      require('../sounds/oneshot/mind.wav'),
-	      require('../sounds/oneshot/lol.wav'),
-	      require('../sounds/oneshot/sd.wav'),
-	      require('../sounds/oneshot/help.wav'),
-	      require('../sounds/oneshot/go.wav'),
-	      require('../sounds/oneshot/please.wav'),
+	      require('../sounds/oneshot/r4/r1.wav'),
+	      require('../sounds/oneshot/r4/r2.wav'),
+	      require('../sounds/oneshot/r4/r3.wav'),
+	      require('../sounds/oneshot/r4/r4.wav'),
+	      require('../sounds/oneshot/r4/r5.wav'),
+	      require('../sounds/oneshot/r4/r6.wav'),
+	      require('../sounds/oneshot/r3/r1.wav'),
+	      require('../sounds/oneshot/r3/r2.wav'),
+	      require('../sounds/oneshot/r3/r3.wav'),
+	      require('../sounds/oneshot/r3/r4.wav'),
+	      require('../sounds/oneshot/r3/r5.wav'),
+	      require('../sounds/oneshot/r3/r6.wav'),
+	      require('../sounds/oneshot/r5/r1.wav'),
+	      require('../sounds/oneshot/r5/r2.wav'),
+	      require('../sounds/oneshot/r5/r3.wav'),
+	      require('../sounds/oneshot/r5/r4.wav'),
+	      require('../sounds/oneshot/r5/r5.wav'),
+	      require('../sounds/oneshot/r5/r6.wav'),
 	    ];
 
 	    const cacheSamples = samples.map((samples) => {
